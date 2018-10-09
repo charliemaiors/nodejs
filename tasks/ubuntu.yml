@@ -1,0 +1,41 @@
+---
+- name: install base packages
+  become: true
+  apt:
+    force_apt_get: true
+    update_cache: true
+    name: ["curl", "apt-transport-https", "lsb-release", "build-essential"]
+    state: present
+  with_items:
+    - curl
+    - apt-transport-https
+    - lsb-release
+    - build-essential
+- name: curl the LTS setup
+  get_url:
+    dest: "{{ ansible_env.HOME }}/nodesetup"
+    url: "{{ ubuntu_lts }}"
+    mode: 0775
+    timeout: 10
+    validate_certs: true
+  when: lts
+- name: curl the latest
+  get_url:
+    dest: "{{ ansible_env.HOME }}/nodesetup"
+    url: "{{ ubuntu_latest }}"
+    mode: 0775
+    timeout: 10
+    validate_certs: true
+  when: not lts
+- name: execute the node setup script
+  become: true
+  shell: "{{ ansible_env.HOME }}/nodesetup"
+  args:
+    executable: /bin/bash
+- name: Install desired nodejs version
+  become: true
+  apt:
+    force_apt_get: true
+    update_cache: true
+    name: nodejs
+    state: present

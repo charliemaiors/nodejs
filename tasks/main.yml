@@ -1,0 +1,13 @@
+---
+- name: import ubuntu tasks when target host is ubuntu
+  import_tasks: ubuntu.yml
+  when:
+    - ansible_distribution == 'Ubuntu'
+- name: import CentOS/Red Hat tasks when host is CentOS/REL
+  import_tasks: centos.yml
+  when:
+    - ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+- name: import ArchLinux tasks when host is Archlinux
+  import_tasks: archlinux.yml
+  when:
+    - ansible_distribution == 'Archlinux'

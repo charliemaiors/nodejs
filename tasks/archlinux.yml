@@ -1,0 +1,17 @@
+---
+- name: Install nodejs when archlinux
+  become: true
+  pacman:
+    state: present
+    upgrade: true
+    name: nodejs
+    update_cache: true
+  when: not lts
+- name: Install nodejs-lts when archlinux
+  become: true
+  pacman:
+    state: present
+    upgrade: true
+    name: "nodejs-lts-{{ latest_arch_lts }}"
+    update_cache: true
+  when: lts

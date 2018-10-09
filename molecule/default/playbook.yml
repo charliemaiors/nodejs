@@ -1,0 +1,6 @@
+---
+- name: Converge
+  hosts: all
+  become_method: "su"
+  roles:
+    - role: nodejs
