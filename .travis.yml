@@ -5,7 +5,7 @@ services:
 addons:
   apt:
     sources:
-      - sourceline: 'https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable'
         key_url: 'https://download.docker.com/linux/ubuntu/gpg'
     packages:
       - docker-ce
