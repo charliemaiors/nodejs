@@ -1,5 +1,6 @@
 Nodejs
 =========
+[![Build Status](https://travis-ci.org/charliemaiors/nodejs.svg?branch=master)](https://travis-ci.org/charliemaiors/nodejs)
 
 This role will install nodejs environment and npm on CentOS, Ubuntu or Archlinux.
 
