@@ -29,9 +29,9 @@
   when: not lts
 - name: execute the node setup script
   become: true
-  shell: "{{ ansible_env.HOME }}/nodesetup"
+  command: "bash -c {{ ansible_env.HOME }}/nodesetup"
   args:
-    executable: /bin/bash
+    creates: /etc/apt/sources.list.d/nodesource.list
 - name: Install desired nodejs version
   become: true
   apt:

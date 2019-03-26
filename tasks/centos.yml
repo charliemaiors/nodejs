@@ -23,9 +23,9 @@
   when: not lts
 - name: execute the node setup script
   become: true
-  shell: "{{ ansible_env.HOME }}/nodesetup"
+  command: "bash -c {{ ansible_env.HOME }}/nodesetup"
   args:
-    executable: /bin/bash
+    creates: /etc/yum.repos.d/nodesource-el7.repo
 - name: install desired version of nodejs
   become: true
   yum:

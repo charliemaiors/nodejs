@@ -1,7 +1,7 @@
 ---
 lts: true
-ubuntu_lts: https://deb.nodesource.com/setup_8.x
-ubuntu_latest: https://deb.nodesource.com/setup_10.x
-centos_lts: https://rpm.nodesource.com/setup_8.x
-centos_latest: https://rpm.nodesource.com/setup_10.x
+ubuntu_lts: https://deb.nodesource.com/setup_10.x
+ubuntu_latest: https://deb.nodesource.com/setup_11.x
+centos_lts: https://rpm.nodesource.com/setup_10.x
+centos_latest: https://rpm.nodesource.com/setup_11.x
 latest_arch_lts: carbon
