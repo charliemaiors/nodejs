@@ -2,13 +2,6 @@ sudo: required
 language: python
 services:
   - docker
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable'
-        key_url: 'https://download.docker.com/linux/ubuntu/gpg'
-    packages:
-      - docker-ce
 
 install:
   - pip install molecule docker-py
